@@ -6,6 +6,8 @@ import About from './components/About';
 import Posts from './components/Posts';
 import Movie from './components/Movie';
 import Favorites from './pages/Favorites';
+import Login from './components/Login';
+import Products from './pages/Products';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Route path="/project" element={<Posts />} />
         <Route path="/movie" element={<Movie />} />
         <Route path="/favorites" element={<Favorites />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/products" element={<Products />} />
       </Routes>
 
     </BrowserRouter>

@@ -6,7 +6,6 @@ const Favorites = () => {
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
-    // Retrieve favorite movies from localStorage
     const storedFavorites = localStorage.getItem("favorites");
 
     if (storedFavorites) {

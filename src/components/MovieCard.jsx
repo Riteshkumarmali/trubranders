@@ -2,16 +2,12 @@ import React from 'react';
 import "../css/MovieCard.css";
 
 function MovieCard({ movie }) {
-    // Add or remove movie from favorites
     const toggleFavorite = () => {
-        // Retrieve current favorites from localStorage (parse it into an array)
         const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
-        // Check if movie is already in favorites
         const index = favorites.findIndex((fav) => fav.imdbID === movie.imdbID);
 
         if (index === -1) {
-            // If not found, add movie to favorites
             favorites.push({
                 imdbID: movie.imdbID,
                 Title: movie.title,
@@ -19,15 +15,10 @@ function MovieCard({ movie }) {
                 Poster: movie.url,
             });
         } else {
-            // If found, remove movie from favorites
             favorites.splice(index, 1);
         }
-
-        // Save updated favorites back to localStorage
         localStorage.setItem("favorites", JSON.stringify(favorites));
-
-        // Optionally, alert user
-        alert(index === -1 ? "Added to favorites!" : "Removed from favorites!");
+       alert(index === -1 ? "Added to favorites!" : "Removed from favorites!");
     };
 
     return (

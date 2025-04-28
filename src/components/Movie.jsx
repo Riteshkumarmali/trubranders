@@ -3,12 +3,10 @@ import MovieCard from "../components/MovieCard";
 import "../css/Home.css";
 
 const API_KEY = "e8020e4f";
-
-// Optional: default movie IMDb IDs to load initially
 const defaultMovieIds = [
-  "tt2911666", // John Wick
-  "tt0103064", // Terminator 2
-  "tt0133093", // The Matrix
+  "tt2911666", 
+  "tt0103064", 
+  "tt0133093",
 ];
 
 const Movie = () => {
@@ -17,7 +15,6 @@ const Movie = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  // Fetch default movies on mount
   useEffect(() => {
     const fetchDefaultMovies = async () => {
       setLoading(true);
@@ -37,7 +34,6 @@ const Movie = () => {
     fetchDefaultMovies();
   }, []);
 
-  // Handle search by movie title
   const handleSearch = async (e) => {
     e.preventDefault();
     if (!searchQuery.trim()) return;
@@ -51,7 +47,7 @@ const Movie = () => {
       const data = await res.json();
 
       if (data.Response === "True") {
-        setMovies([data]); // Show only the searched movie
+        setMovies([data]); 
       } else {
         setError("Movie not found.");
         setMovies([]);
@@ -69,7 +65,7 @@ const Movie = () => {
         <input
           onChange={(e) => setSearchQuery(e.target.value)}
           value={searchQuery}
-          placeholder="Search for a movie (e.g., Chaava)"
+          placeholder="Search movie (e.g. Chaava)"
           className="search-input"
           type="text"
         />
